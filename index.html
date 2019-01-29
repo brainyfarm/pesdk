@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- React Dependencies for the SDK UI -->
+  <script src="js/vendor/react.production.min.js"></script>
+  <script src="js/vendor/react-dom.production.min.js"></script>
+  <!-- PhotoEditor SDK-->
+  <script src="js/PhotoEditorSDK.min.js"></script>
+  <!-- PhotoEditor SDK UI -->
+  <script src="./js/PhotoEditorSDK.UI.ReactUI.min.js"></script>
+  <link rel="stylesheet" href="css/PhotoEditorSDK.UI.ReactUI.min.css" />
+</head>
+
+<body>
+  <div id="editor" style="width: 100vw; height: 100vh;"></div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      console.log('DOM is done loading')
+      const image = new Image();
+
+      image.src = 'olawale.png';
+
+      var container = document.getElementById('editor')
+      var editor = new PhotoEditorSDK.UI.ReactUI({
+        editor: {
+          image,
+          controlsOrder: [['frame', 'transform'], 'filter', 'adjustments', 'focus'],
+          controlOptions: {
+            focus: {
+              availableModes: ['radial', 'mirrored', 'linear']
+            },
+            adjustments: {
+              availableAdjustments: ['brightness', 'saturation', 'contrast']
+            }
+          }
+        },
+        container: container,
+        enableWebcam: false,
+        license: '{"owner":"Olawale Akinseye","version":"2.1","enterprise_license":false,"available_actions":["magic","filter","transform","sticker","text","adjustments","brush","focus","frames","camera"],"features":["adjustment","filter","focus","overlay","transform","text","sticker","frame","brush","camera","textdesign","library","export"],"platform":"HTML5","app_identifiers":["localhost","127.0.0.1"],"api_token":"bB5r-27ynT-Mi2tGgltl-A","domains":["https://api.photoeditorsdk.com"],"issued_at":1548784771,"expires_at":1551312000,"signature":"jiP4oqNbqf8GwmMdNQBKw0RpSWs/w8FkttdGJLz+v7MB5W/NXLJLWul6tFRrgxCSheohPvAfwQUiAisi+1gSJQCg4J5RaH8VDehgXNDLS11xuh4kz6Wpvm8p2qDxRsXnJhYFAnwVNC2pQ6GGsGuKk0TimBHZJ25bLpY9HzMV8ND/yzhi1/jGsG1L7+gqLU7He33q1eF32azluByvzmCerauOf2uvwlozmKuY1+Vk0Iiwjn1/Nm+ZouxJjMtWO17WSZait9jpOP+YbfJn9TkNk8kktz+IiQn6qIHubTOGAe7ppBMuY8j9Msmu+WsYrCPlI66AeHAHweso12OYw1C7Mbc55pf9hkey7HflioGfZpTpYHJp7m9C/yeqDU/NPnedk1mpyGYoECY4+i36hIrtEOsdPJJSubmF2r5LpZBYiB+OukaOcjOMWlqY2Zm7I9whF/aFOlG91u4O7yGWjuFz5prgcKxMClvlnQDCmWMcB5ZL+7NogMfg+sXg96dBaRyt88y09C2v5xT0uuN/cQvu0NisD8KtUpkuaKfHOpSANoVkZGb0L7kUkUsiD1nDcsZwAjiGpuCp4kFF022fHOY+a/lkB6F19lk8ReQ5isiHRXvvs5r0GZosRtgspU5ukDw935g6LoZ0ocbHR1lDpkTCCD9fYjm3YeBdyr5wUVudr/Q="}',
+
+        // Please replace this with your license: https://www.photoeditorsdk.com/dashboard/subscriptions
+        assets: {
+          // This should be the absolute path to your `assets` directory
+          baseUrl: '/assets'
+        }
+      })
+    });
+
+      // window.onload = function () {
+      // }
+  </script>
+</body>
+
+</html>
