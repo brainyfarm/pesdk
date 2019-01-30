@@ -16,7 +16,6 @@
   <div id="editor" style="width: 100vw; height: 100vh;"></div>
   <script>
     document.addEventListener("DOMContentLoaded", function (event) {
-      console.log('DOM is done loading')
       const image = new Image();
       image.src = 'olawale.png';
 
@@ -26,7 +25,17 @@
           image,
           controlsOptions: {
             adjustments: {
-                availableAdjustments: ['brightness', 'saturation', 'contrast']
+              availableAdjustments: [
+                'brightness',
+                'saturation',
+                'contrast'
+               ]
+            },
+            filter: {
+              availableFilters: [
+                'imgly_lut_k2',
+                'imgly_lut_mellow'
+              ]
             }
           }
         },
