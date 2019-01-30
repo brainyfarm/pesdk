@@ -18,20 +18,15 @@
     document.addEventListener("DOMContentLoaded", function (event) {
       console.log('DOM is done loading')
       const image = new Image();
-
       image.src = 'olawale.png';
 
       var container = document.getElementById('editor')
       var editor = new PhotoEditorSDK.UI.ReactUI({
         editor: {
           image,
-          controlsOrder: [['frame', 'transform'], 'filter', 'adjustments', 'focus'],
-          controlOptions: {
-            focus: {
-              availableModes: ['radial', 'mirrored', 'linear']
-            },
+          controlsOptions: {
             adjustments: {
-              availableAdjustments: ['brightness', 'saturation', 'contrast']
+                availableAdjustments: ['brightness', 'saturation', 'contrast']
             }
           }
         },
